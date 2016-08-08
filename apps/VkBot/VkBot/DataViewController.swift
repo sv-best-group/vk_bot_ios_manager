@@ -15,8 +15,11 @@ class DataViewController: UIViewController {
     
     @IBAction func logIn(sender: AnyObject) {
         print("Button is pressed!")
-        let operation = OAuthAutorizer.tokenOperation(self)
-        operation.observe { (event) in
+        
+        let operation = auth.tokenOperation(self)
+            
+            //OAuthAutorizer.tokenOperation(self)
+        _ = operation.observe { (event) in
             switch event {
                 
             case .Next(let value):
@@ -30,7 +33,6 @@ class DataViewController: UIViewController {
 
             }
         }
-        
     }
 
     override func viewDidLoad() {
